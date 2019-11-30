@@ -13,4 +13,5 @@ function insertionSort (nums) {
     nums[j] = ele
   }
 }
+
 module.exports = insertionSort
