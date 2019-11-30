@@ -1,3 +1,4 @@
+const { insertionSortByRange } = require('./02-Insertion-Sort')
 // 归并排序
 function mergeSort (arr) {
   _mergeSort(arr, 0, arr.length - 1)
@@ -22,6 +23,20 @@ function _mergeSort (arr, l, r) {
     _merge(arr, l, mid, r)
   }
 }
+// 归并排序自底向上
+function mergeSortBottomUp (arr) {
+  const len = arr.length
+  for (let size = 1; size <= len; size += size) {
+    // i + size < len 保证右数组存在, 否则没有归并的必要
+    for (let i = 0; i + size < len; i += size * 2) {
+      // console.log(i, i + size - 1, Math.min((i + size * 2 - 1), len - 1))
+      // 对[i, i + size - 1]和[i + size, i + size * 2 - 1]进行归并
+      _merge(arr, i, i + size - 1, Math.min((i + size * 2 - 1), len - 1))
+    }
+  }
+  // console.log(arr)
+}
+
 // 归并数组
 function _merge (arr, l, mid, r) {
   const aux = []
@@ -32,6 +47,7 @@ function _merge (arr, l, mid, r) {
   let j = mid + 1
   // 遍历辅助数组, 对[l, mid], [mid + 1, r]两个数组进行规定
   for (let k = l; k <= r; k++) {
+    
     if (i > mid) { // 左数组已经归并完毕
       arr[k] = aux[j - l]
       j++
@@ -41,22 +57,13 @@ function _merge (arr, l, mid, r) {
     } else if (aux[i - l] < aux[j - l]) {  // 左数组索引的数大于右数组
       arr[k] = aux[i - l]
       i++
-    } else if (aux[i - l] > aux[j - l]) {// 右数组索引的数大于左数组
+    } else if (aux[i - l] >= aux[j - l]) {// 左数组索引的数小于等于右数组, 注意相等的情况, 直接else也行
       arr[k] = aux[j - l]
       j++
     }
   }
 }
-// 使用插入排序[l, r]范围内的元素
-function insertionSortByRange (nums, l, r) {
-  for (let i = l + 1; i <= r; i++) {
-    const ele = nums[i]
-    let j
-    for (j = i; j > l && ele < nums[j - 1]; j--) {
-      nums[j] = nums[j - 1]
-    }
-    nums[j] = ele
-  }
+module.exports = {
+  mergeSort,
+  mergeSortBottomUp
 }
-
-module.exports = mergeSort

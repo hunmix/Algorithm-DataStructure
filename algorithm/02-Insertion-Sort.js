@@ -14,4 +14,19 @@ function insertionSort (nums) {
   }
 }
 
-module.exports = insertionSort
+// 使用插入排序[l, r]范围内的元素
+function insertionSortByRange (nums, l, r) {
+  for (let i = l + 1; i <= r; i++) {
+    const ele = nums[i]
+    let j
+    for (j = i; j > l && ele < nums[j - 1]; j--) {
+      nums[j] = nums[j - 1]
+    }
+    nums[j] = ele
+  }
+}
+
+module.exports = {
+  insertionSort,
+  insertionSortByRange
+}
