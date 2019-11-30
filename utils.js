@@ -10,7 +10,7 @@ const generareRandomArray = (n, rangeL, rangeR) => {
   }
   const arr = []
   for (let i = 0; i < n; i++) {
-    arr.push(Math.floor(Math.random() * (rangeR - rangeL) + rangeL))
+    arr.push(Math.floor(Math.random() * (rangeR - rangeL + 1) + rangeL))
   }
   return arr
 }
@@ -59,10 +59,24 @@ const testSort = (sortName, sortFn, arr) => {
   const isSuccess = isSort(arr)
   console.log(`${sortName}: ${isSuccess ? 'successful' : 'failed'} ${(end - start) / 1000}s`)
 }
+/**
+ * 交换数组中数据位置。
+ * @param {*} arr 
+ * @param {*} i 
+ * @param {*} j 
+ */
+const swap = (arr, i, j) => {
+  // 使用es6写法会使速度变慢
+  // [arr[l], arr[j]] = [arr[j], arr[l]]
+  const temp = arr[i]
+  arr[i] = arr[j]
+  arr[j] = temp
+}
 
 module.exports = {
   generareRandomArray,
   generateNearlyOrderedArray,
   testSort,
-  print
+  print,
+  swap
 }

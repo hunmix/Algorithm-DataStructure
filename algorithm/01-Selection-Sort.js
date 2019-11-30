@@ -1,3 +1,4 @@
+const { swap } = require('../utils')
 // 选择排序
 function selectionSort (nums) {
   for (let i = 0; i < nums.length; i++) {
@@ -6,10 +7,7 @@ function selectionSort (nums) {
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[j] < nums[minIndex]) {
         // 交换位置
-        let temp = nums[minIndex]
-        nums[i] = nums[j]
-        nums[j] = temp
-        // [nums[i], nums[j]] = [nums[j], nums[i]] // 用这个方法速度会变慢
+        swap(nums, i ,j)
       }
     }
   }
