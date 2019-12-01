@@ -1,5 +1,5 @@
 const { swap } = require('../utils')
-const { insertionSortByRange } = require('./02-Insertion-Sort')
+const { insertionSortByRange } = require('./02-InsertionSort')
 
 // 快速排序
 function quickSort (arr) {

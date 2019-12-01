@@ -1,4 +1,4 @@
-const { insertionSortByRange } = require('./02-Insertion-Sort')
+const { insertionSortByRange } = require('./02-InsertionSort')
 // 归并排序
 function mergeSort (arr) {
   _mergeSort(arr, 0, arr.length - 1)
