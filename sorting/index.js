@@ -5,6 +5,8 @@ const { mergeSort, mergeSortBottomUp} = require('./03-MergeSort')
 const { quickSort } = require('./04-QuickSort')
 const { quickSort2 } = require('./05-QuickSort2')
 const { quickSort3Ways } = require('./06-QuickSort3')
+const { heapSort } = require('./07-HeapSort')
+const { heapSort2 } = require('./08-HeapSort2')
 
 const start = (n, rangeL, rangeR) => {
   const arr = generareRandomArray(n, rangeL, rangeR)
@@ -15,13 +17,18 @@ const start = (n, rangeL, rangeR) => {
   const arr5 = [...arr]
   const arr6 = [...arr]
   const arr7 = [...arr]
-  testSort('Selection Sort', selectionSort, arr)
-  testSort('Insertion Sort', insertionSort, arr2)
-  testSort('Merge Sort', mergeSort, arr3)
-  testSort('Merge Sort Bottom Up', mergeSortBottomUp, arr4)
-  testSort('Quick Sort', quickSort, arr5)
-  testSort('Quick Sort 2', quickSort2, arr6)
-  testSort('Quick Sort 3 Ways', quickSort3Ways, arr7)
+  const arr8 = [...arr]
+  const arr9 = [...arr]
+  // testSort('Selection Sort', selectionSort, arr)
+  // testSort('Insertion Sort', insertionSort, arr2)
+  // testSort('Merge Sort', mergeSort, arr3)
+  // testSort('Merge Sort Bottom Up', mergeSortBottomUp, arr4)
+  // testSort('Quick Sort', quickSort, arr5)
+  // testSort('Quick Sort 2', quickSort2, arr6)
+  // testSort('Quick Sort 3 Ways', quickSort3Ways, arr7)
+  testSort('Heap Sort', heapSort, arr8)
+  testSort('Heap Sort 2', heapSort2, arr9)
+  testSort('Heap Sort 2', heapSort2, arr9)
 }
 
-start(10000, 0, 10)
+start(100000, 0, 10000)

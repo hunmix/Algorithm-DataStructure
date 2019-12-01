@@ -54,10 +54,10 @@ function _merge (arr, l, mid, r) {
     } else if (j > r) { // 右数组已经归并完毕
       arr[k] = aux[i - l]
       i++
-    } else if (aux[i - l] < aux[j - l]) {  // 左数组索引的数大于右数组
+    } else if (aux[i - l] <= aux[j - l]) {  // 左数组索引的数 <= 于右数组中的元素
       arr[k] = aux[i - l]
       i++
-    } else if (aux[i - l] >= aux[j - l]) {// 左数组索引的数小于等于右数组, 注意相等的情况, 直接else也行
+    } else {// 左数组索引的数 > 右数组中的元素
       arr[k] = aux[j - l]
       j++
     }
