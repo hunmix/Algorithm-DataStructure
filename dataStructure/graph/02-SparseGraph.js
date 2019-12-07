@@ -1,3 +1,25 @@
+class Edge {
+  constructor (a, b, weight) {
+    this.a = a
+    this.b = b
+    this.weight = weight
+  }
+  v () {
+    return this.a
+  }
+  w () {
+    return this.b
+  }
+  wt () {
+    return this.weight
+  }
+  other (a) {
+    if (a !== this.a || a !== this.b) {
+
+    }
+    return a === this.a ? this.b : this.a
+  }
+}
 // 稠密图: 邻接表实现
 class SparseGraph {
   constructor (n, directed) {
@@ -11,7 +33,7 @@ class SparseGraph {
       this.g.push([])
     }
   }
-  addEdge (v, w) {
+  addEdge (v, w, weight) {
     if (v < 0 || v > this.n || w < 0 || w > this.n) {
       console.error('out of range')
       return
@@ -19,9 +41,9 @@ class SparseGraph {
     if (this.hasEdge(v, w)) {
       return
     }
-    this.g[v].push(w)
+    this.g[v].push(new Edge(v, w, weight))
     if (v !== w && !this.directed) {
-      this.g[w].push(v)
+      this.g[w].push(new Edge(w, v, weight))
     }
     this.m++
   }
@@ -70,11 +92,12 @@ class SparseGraph {
       const v = queue.shift()
       const edges = this.iteratorAdjcent(v)
       for (let i = 0; i < edges.length; i++) {
-        if (!this._visited[edges[i]]) {
-          this._visited[edges[i]] = true
-          this._from[edges[i]] = v
-          this._order[edges[i]] = this._order[v] + 1
-          queue.push(edges[i])
+        const w = edges[i].w()
+        if (!this._visited[w]) {
+          this._visited[w] = true
+          this._from[w] = v
+          this._order[w] = this._order[v] + 1
+          queue.push(w)
         }
       }
     }
@@ -94,9 +117,9 @@ class SparseGraph {
     this._visited[v] = true
     const edges = this.iteratorAdjcent(v)
     for (let i = 0; i < edges.length; i++) {
-      if (!this._visited[edges[i]]) {
-        this._from[edges[i]] = v
-        this._dfs(edges[i])
+      if (!this._visited[edges[i].w()]) {
+        this._from[edges[i].w()] = v
+        this._dfs(edges[i].w())
       }
     }
   }
@@ -113,7 +136,7 @@ class SparseGraph {
     for (let i = 0; i < this.n; i++) {
       let str = `${i}: `
       for (let j = 0; j < this.g[i].length; j++) {
-        str += `${this.g[i][j]} `
+        str += `( to: ${this.g[i][j].w()}, weight: ${this.g[i][j].wt()} )`
       }
       console.log(str)
     }
@@ -124,7 +147,7 @@ class SparseGraph {
       return
     }
     for (let i = 0; i < this.g[v].length; i++) {
-      if (this.g[v][i] === w) {
+      if (this.g[v][i].w() === w) {
         return true
       } else {
         return false

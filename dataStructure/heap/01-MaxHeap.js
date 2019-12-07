@@ -27,7 +27,7 @@ class MaxHeap {
   _heapify (arr) {
     this.data = [, ...arr]
     this._count = arr.length
-    let k = Math.floor(this._count / 2)
+    let k = Math.floor(this._count / 2) // 第一个非叶子节点元素
     for (let i = k; i >= 1; i--) {
       this._shiftDown(i)
     }

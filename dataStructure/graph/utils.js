@@ -10,15 +10,15 @@ function readGraph (graph, filename) {
       input: fs.createReadStream(path.join(__dirname, filename))
     })
     lineReader.on('line', line => {
-      const [v, w] = line.split(' ')
-      graph.addEdge(Number(v), Number(w))
+      const [v, w, weight] = line.split(' ')
+      graph.addEdge(Number(v), Number(w), weight ? Number(weight) : 0)
       count++
     })
     lineReader.on('close', () => {
-      if (count !== n) {
-        console.log(`number of nodes is not correct: execpt ${n}, but found ${count} in file ${filename}`)
-        return
-      }
+      // if (count !== n) {
+      //   console.log(`number of nodes is not correct: execpt ${n}, but found ${count} in file ${filename}`)
+      //   return
+      // }
       resolve()
     })
   })
