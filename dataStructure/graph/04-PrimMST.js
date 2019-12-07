@@ -1,26 +1,19 @@
-const MinHeap = require('./MinHeap')
+const IndexMinHeap = require('./IndexMinHeap')
 
 // 最小生成树
-class LazyPrimMST {
+class PrimMST {
   constructor (graph) {
     this.graph = graph
     this.marked = [] // 顶点是否访问过
-    this.pq = new MinHeap() // 存储边
+    this.pq = new IndexMinHeap() // 存储边
     this.mst = [] // 最小生成树的边
     this.minWeight = null
 
     this.visit(0)
     while (!this.pq.isEmpty()) {
       const edge = this.pq.extractMin()
-      // 如果两个点处于同一区域, 丢弃
-      if (this.marked[edge.v()] === this.marked[edge.w()]) {
-        continue
-      }
       this.mst.push(edge)
-      // 访问未被访问的另一端点
-      if (!this.marked[edge.w()]) {
-        this.visit(edge.w())
-      }
+      this.visit(edge.w())
     }
 
     for (let i = 0; i < this.mst.length; i++) {
@@ -35,9 +28,18 @@ class LazyPrimMST {
     this.marked[v] = true
     const edges = this.graph.iteratorAdjcent(v)
     for (let i = 0; i < edges.length; i++) {
-      if (!this.marked[edges[i].w()]) {
-        // 将横切边加入优先队列
-        this.pq.insert(edges[i])
+      const w = edges[i].w()
+      if (!this.marked[w]) {
+        const minWeight = this.pq.getItem(w) && this.pq.getItem(w).wt()
+        // 端点已存在相连的边时只保留最短边, 其他边舍弃
+        if (minWeight) {
+          if (edges[i].wt() < minWeight) {
+            this.pq.change(w, edges[i])
+          }
+        } else {
+          // 将横切边加入优先队列
+          this.pq.insert(w, edges[i])
+        }
       }
     }
   }
@@ -51,4 +53,4 @@ class LazyPrimMST {
   }
 }
 
-module.exports = LazyPrimMST
+module.exports = PrimMST
