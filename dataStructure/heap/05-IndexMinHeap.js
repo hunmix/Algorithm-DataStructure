@@ -1,5 +1,5 @@
 // 最小索引堆
-class MinHeap {
+class IndexMinHeap {
   constructor (arr = []) {
     this.data = []
     this._indexes = []
@@ -12,6 +12,12 @@ class MinHeap {
     this._indexes[0] = this._indexes[--this._count]
     this._shiftDown(0)
     return min
+  }
+  extractMinIndex () {
+    const minIndex = this._indexes[0]
+    this._indexes[0] = this._indexes[--this._count]
+    this._shiftDown(0)
+    return minIndex
   }
   insert (i, v) {
     this.data[i] = v
@@ -62,10 +68,10 @@ class MinHeap {
     while (k * 2 + 1 < this._count) {
       let j = k * 2 + 1
       // 获取子节点数值较小的节点
-      if (j + 1 < this._count && this.data[this._indexes[j + 1]].wt() < this.data[this._indexes[j]].wt() ) {
+      if (j + 1 < this._count && this.data[this._indexes[j + 1]] < this.data[this._indexes[j]] ) {
         j += 1
       }
-      if (this.data[temp].wt() < this.data[this._indexes[j]].wt()) {
+      if (this.data[temp] < this.data[this._indexes[j]]) {
         break
       }
       this._indexes[k] = this._indexes[j]
@@ -75,7 +81,7 @@ class MinHeap {
   }
   _shiftUp (k) {
     const temp = this._indexes[k]
-    while (k > 0 && this.data[temp].wt() < this.data[this._indexes[Math.floor((k - 1) / 2)]].wt()) {
+    while (k > 0 && this.data[temp] < this.data[this._indexes[Math.floor((k - 1) / 2)]]) {
       this._indexes[k] = this._indexes[Math.floor((k - 1) / 2)]
       k = Math.floor((k - 1) / 2)
     }
@@ -96,7 +102,7 @@ class MinHeap {
         space += ' '
       }
       for (let j = Math.pow(2, i) - 1; j <= this._count - 1 && j < 2 * Math.pow(2, i) - 1; j++) {
-        layer += `${space}${this.data[this._indexes[j]].wt()}${space}`
+        layer += `${space}${this.data[this._indexes[j]]}${space}`
       }
       tree += layer + '\n'
     }
@@ -104,4 +110,4 @@ class MinHeap {
   }
 }
 
-module.exports = MinHeap
+module.exports = IndexMinHeap
