@@ -23,5 +23,5 @@
   - 03-最小生成树 lazy prim
   - 04-最小生成树 prim
   - 05-最小生成树 kruskal
-  - 06-单源最短路径 dijkstra
-  - 07-单源最短路径 bellman ford 判断是否含负权环
+  - 06-单源最短路径(无负权边) dijkstra
+  - 07-单源最短路径(无负权环) bellman ford
