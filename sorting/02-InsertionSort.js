@@ -1,5 +1,5 @@
 const { generareRandomArray, testSort } = require('../utils')
-// 选择排序
+// 插入排序
 function insertionSort (nums) {
   for (let i = 1; i < nums.length; i++) {
     // 保存要插入的值

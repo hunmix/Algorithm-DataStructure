@@ -45,7 +45,7 @@ function _merge (arr, l, mid, r) {
   }
   let i = l
   let j = mid + 1
-  // 遍历辅助数组, 对[l, mid], [mid + 1, r]两个数组进行规定
+  // 遍历辅助数组, 对[l, mid], [mid + 1, r]两个数组进行归并
   for (let k = l; k <= r; k++) {
     
     if (i > mid) { // 左数组已经归并完毕
