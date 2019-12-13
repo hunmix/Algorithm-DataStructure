@@ -10,6 +10,8 @@ const { heapSort } = require('./07-HeapSort')
 const { heapSort2 } = require('./08-HeapSort2')
 const { shellSort } = require('./09-ShellSort')
 const { countSort } = require('./10-CountSort')
+const { bucketSort } = require('./11-BucketSort')
+const { radixSort } = require('./12-RadixSort')
 
 const start = (n, rangeL, rangeR) => {
   const arr = generareRandomArray(n, rangeL, rangeR)
@@ -25,18 +27,22 @@ const start = (n, rangeL, rangeR) => {
   const arr9 = [...arr]
   const arr10 = [...arr]
   const arr11 = [...arr]
+  const arr12 = [...arr]
+  const arr13 = [...arr]
   // testSort('Bubble Sort', bubbleSort, arr1)
   // testSort('Selection Sort', selectionSort, arr)
   // testSort('Insertion Sort', insertionSort, arr2)
   testSort('Merge Sort', mergeSort, arr3)
   // testSort('Merge Sort Bottom Up', mergeSortBottomUp, arr4)
   testSort('Quick Sort', quickSort, arr5)
-  // testSort('Quick Sort 2', quickSort2, arr6)
-  // testSort('Quick Sort 3 Ways', quickSort3Ways, arr7)
+  testSort('Quick Sort 2', quickSort2, arr6)
+  testSort('Quick Sort 3 Ways', quickSort3Ways, arr7)
   // testSort('Heap Sort', heapSort, arr8)
   // testSort('Heap Sort 2', heapSort2, arr9)
   testSort('Shell Sort', shellSort, arr10)
   testSort('Count Sort', shellSort, arr11)
+  testSort('Bucket Sort', bucketSort, arr12)
+  testSort('Radix Sort', radixSort, arr13)
 }
 
-start(100000, 0, 10000)
+start(10000, 0, 10000)
