@@ -1,4 +1,4 @@
-排序(sorting)
+**排序(sorting)**
 - 00-冒泡排序 O(n²)
 - 01-选择排序 O(n²)
 - 02-插入排序 O(n²) 对近乎有序的数组效率非常高
@@ -13,7 +13,7 @@
 - 11-桶排序
 - 12-基数排序
 
-数据结构(dataStructure)
+**数据结构(dataStructure)**
 - 堆(heap)
   - 01-最大二叉堆 父节点的值总是大于子节点的值, 动态数据维护
   - 02-最大索引堆
@@ -32,3 +32,10 @@
   - 05-最小生成树 kruskal
   - 06-单源最短路径(无负权边) dijkstra
   - 07-单源最短路径(无负权环) bellman ford
+
+**算法(algrothm)** 不熟悉部分备忘
+- 数组相关算法(array)
+  - [ ] 76-MinimumWindowSubstring
+- 查找表相关算法(hashTable)
+  - [x] 15-3Sum
+  - [ ] 18-4Sum 未做完明儿继续
