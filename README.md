@@ -33,9 +33,7 @@
   - 06-单源最短路径(无负权边) dijkstra
   - 07-单源最短路径(无负权环) bellman ford
 
-**算法(algrothm)** 不熟悉部分备忘
+**算法(algrothm)** 没做的 or 不熟悉部分备忘
 - 数组相关算法(array)
   - [ ] 76-MinimumWindowSubstring
 - 查找表相关算法(hashTable)
-  - [x] 15-3Sum
-  - [ ] 18-4Sum 未做完明儿继续
