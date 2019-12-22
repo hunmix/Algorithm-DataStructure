@@ -46,7 +46,7 @@ const isSort = (arr) => {
   return true
 }
 /**
- * 测试排序行能
+ * 测试排序性能
  * @param {String} sortName 函数名
  * @param {Function} sortFn 函数引用
  * @param {Array} arr 数组
