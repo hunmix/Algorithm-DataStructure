@@ -19,13 +19,28 @@ class ListNode {
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-  const head = new ListNode(null)
-  let cur = head
-  let flag = 0 // 是否进位
-  while (l1 || l2 || flag) {
+  let head1 = null
+  let head2 = null
+  let newHead = null
+  let cur = null // 新链表的尾巴
+  let flag = 0
+  // 反转链表, 个位数放前面 
+  while (l1) {
+    const next = l1.next
+    l1.next = head1
+    head1 = l1
+    l1 = next
+  }
+  while (l2) {
+    const next = l2.next
+    l2.next = head2
+    head2 = l2
+    l2 = next
+  }
+  while (head1 || head2 || flag) {
     let val = flag
-    let v1 = l1 ? l1.val : 0
-    let v2 = l2 ? l2.val : 0
+    let v1 = head1 ? head1.val : 0
+    let v2 = head2 ? head2.val : 0
     val += v1 + v2
     if (val >= 10) {
       flag = 1
@@ -33,13 +48,14 @@ var addTwoNumbers = function(l1, l2) {
     } else {
       flag = 0
     }
-    cur.next = new ListNode(val)
-    cur = cur.next
-    l1 = l1 ? l1.next : l1
-    l2 = l2 ? l2.next : l2
+    const newNode = new ListNode(val)
+    newNode.next = cur
+    cur = newNode
+    newHead = newNode
+    head1 = head1 ? head1.next : head1
+    head2 = head2 ? head2.next : head2
   }
-  cur = null
-  return head.next
+  return newHead
 };
 const test = (fn, arr, arr2) => {
   const l1 = makeLinkedList(arr).getHead()
@@ -58,5 +74,6 @@ const show = (head) => {
   console.log(str)
 }
 
-test(addTwoNumbers, [2, 4, 3], [5, 6, 4])
+// test(addTwoNumbers, [2, 4, 3], [5, 6, 4])
+test(addTwoNumbers, [7, 2, 4, 3], [5, 6, 4])
 test(addTwoNumbers, [5], [5])

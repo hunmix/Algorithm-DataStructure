@@ -18,28 +18,19 @@ class ListNode {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
-  const head = new ListNode(null)
-  let cur = head
-  let flag = 0 // 是否进位
-  while (l1 || l2 || flag) {
-    let val = flag
-    let v1 = l1 ? l1.val : 0
-    let v2 = l2 ? l2.val : 0
-    val += v1 + v2
-    if (val >= 10) {
-      flag = 1
-      val = val % 10
+var mergeTwoLists = function(l1, l2) {
+  const tempHead = new ListNode(null)
+  let cur = tempHead
+  while (l1 || l2) {
+    const v1 = l1 ? l1.val : Number.MAX_SAFE_INTEGER
+    const v2 = l2 ? l2.val : Number.MAX_SAFE_INTEGER
+    if (v1 < v2) {
+      cur.next = l1
+      l1 = l1 ? l1.next : l1
     } else {
-      flag = 0
+
     }
-    cur.next = new ListNode(val)
-    cur = cur.next
-    l1 = l1 ? l1.next : l1
-    l2 = l2 ? l2.next : l2
   }
-  cur = null
-  return head.next
 };
 const test = (fn, arr, arr2) => {
   const l1 = makeLinkedList(arr).getHead()
@@ -58,5 +49,4 @@ const show = (head) => {
   console.log(str)
 }
 
-test(addTwoNumbers, [2, 4, 3], [5, 6, 4])
-test(addTwoNumbers, [5], [5])
+test(mergeTwoLists, [1, 2, 4], [1, 3, 4])

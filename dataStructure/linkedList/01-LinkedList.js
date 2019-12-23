@@ -45,5 +45,6 @@ const makeLinkedList = (arr) => {
 }
 
 module.exports = {
-  makeLinkedList
+  makeLinkedList,
+  Node
 }
