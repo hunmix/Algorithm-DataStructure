@@ -1,11 +1,7 @@
 const { makeLinkedList } = require('../../dataStructure/linkedList/01-LinkedList')
-// 本地没有这个类, 写个临时的用一下
-class ListNode {
-  constructor (val) {
-    this.val = val
-    this.next = null
-  }
-}
+const linkedList = require('../../dataStructure/linkedList/01-LinkedList')
+const ListNode = linkedList.Node
+const show = linkedList.show
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -46,16 +42,6 @@ const test = (fn, arr, arr2) => {
   const l2 = makeLinkedList(arr2).getHead()
   const newHead = fn(l1, l2)
   show(newHead)
-}
-const show = (head) => {
-  let str = ''
-  let node = head
-  while (node) {
-    str += `${node.val} -> `
-    node = node.next
-  }
-  str += 'NULL'
-  console.log(str)
 }
 
 test(addTwoNumbers, [2, 4, 3], [5, 6, 4])
