@@ -1,11 +1,6 @@
 const test = require('./test')
-// 本地没有这个类, 写个临时的用一下
-class ListNode {
-  constructor (val) {
-    this.val = val
-    this.next = null
-  }
-}
+const linkedList = require('../../dataStructure/linkedList/01-LinkedList')
+const ListNode = linkedList.Node
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

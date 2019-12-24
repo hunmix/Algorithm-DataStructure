@@ -43,8 +43,18 @@ const makeLinkedList = (arr) => {
   }
   return linkedList
 }
-
+const show = (head) => {
+  let str = ''
+  let node = head
+  while (node) {
+    str += `${node.val} -> `
+    node = node.next
+  }
+  str += 'NULL'
+  console.log(str)
+}
 module.exports = {
   makeLinkedList,
-  Node
+  Node,
+  show
 }
