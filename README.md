@@ -38,4 +38,3 @@
   - [ ] 76-MinimumWindowSubstring
 - 查找表相关算法(hashTable)
 - 链表关算法(linkedList)
-  - [ ] 25-ReverseNodesInk-Group
