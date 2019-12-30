@@ -38,3 +38,4 @@
   - [ ] 76-MinimumWindowSubstring
 - 查找表相关算法(hashTable)
 - 链表关算法(linkedList)
+  - [x] 234-PalindromeLinkedList 优化: 第二部分链表反转时比较
