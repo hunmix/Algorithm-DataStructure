@@ -18,31 +18,24 @@ var isPalindrome = function(head) {
   if (!head || !head.next) {
     return true
   }
+  let stack = []
   let s = head
   let f = head
   while (f.next && f.next.next) {
     s = s.next
-    f = f.next.next
+    f = f.next
+    stack.push(s)
   }
-  const mid = s.next
-  s.next = null
-  const newHead = new ListNode(null)
-  let cur = mid
-  let prev = null
-  // 翻转链表
+  if (!f.next) {
+    stack.pop()
+  }
+  let cur = s.next
   while (cur) {
-    const next = cur.next
-    cur.next = prev
-    prev = cur
-    cur = next
-  }
-  let l2 = prev
-  while (head && l2) {
-    if (head.val !== l2.val) {
+    const val = stack.pop()
+    console.log(val)
+    if (val !== cur.val) {
       return false
     }
-    head = head.next
-    l2 = l2.next
   }
   return true
 };
