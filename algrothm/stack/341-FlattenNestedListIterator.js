@@ -31,6 +31,9 @@
 var NestedIterator = function(nestedList) {
   this.list = nestedList
   this.stack = []
+  for (let i = this.list.length - 1; i >= 0; i--) {
+    this.stack.push(this.list[i])
+  }
 };
 
 
@@ -49,7 +52,11 @@ NestedIterator.prototype.hasNext = function() {
 NestedIterator.prototype.next = function() {
   const val = this.stack.pop()
   if (Array.isArray(val)) {
-
+    const head = val.shift()
+    for (let i = val.length - 1; i >= 0; i--) {
+      this.stack.push(val[i])
+    }
+    return head
   } else {
     return val
   }
@@ -66,5 +73,6 @@ const test = (arr) => {
   while (i.hasNext()) a.push(i.next())
   console.log(a)
 }
-test([[1,1],2,[1,1]])
-test([1,[4,[6]]])
+// test([[1,1],2,[1,1]])
+// test([1,[4,[6]]])
+test([[3],[4,5,6]])
