@@ -13,7 +13,6 @@ var minPathSum = function(grid) {
     // dp[0].push((dp[0][i - 1] || 0) + grid[0][i])
     dp[0][i] = (dp[0][i - 1] || 0) + dp[0][i]
   }
-  console.log(dp)
   // 从第二行开始算
   for (let i = 1; i < dp.length; i++) {
     for (let j = 0; j < dp[i].length; j++) {

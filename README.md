@@ -43,4 +43,4 @@
 - [ ] 145-BinaryTreePostorderTraversal 迭代算法
 - [ ] 279-PerfectSquares 存档点
 - 动态规划
-- [x] 64-MinimumPathSum 空间优化
+- [x] 343-IntegerBreak 优化: 贪心
