@@ -40,6 +40,7 @@
 - 链表相关算法(linkedList)
   - [x] 234-PalindromeLinkedList 优化: 第二部分链表反转时比较
 - 栈相关算法(stack)
-  - [ ] 145-BinaryTreePostorderTraversal 迭代算法
-  - [ ] 279-PerfectSquares 存档点
+- [ ] 145-BinaryTreePostorderTraversal 迭代算法
+- [ ] 279-PerfectSquares 存档点
 - 动态规划
+- [x] 64-MinimumPathSum 空间优化
