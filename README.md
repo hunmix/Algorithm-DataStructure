@@ -41,7 +41,8 @@
   - [x] 234-PalindromeLinkedList 优化: 第二部分链表反转时比较
 - 栈相关算法(stack)
 - [ ] 145-BinaryTreePostorderTraversal 迭代算法
-- [ ] 279-PerfectSquares 存档点
+- [x] 279-PerfectSquares 尝试转换成图
+- [x] 127-WordLadder 双向bfs优化
 - 动态规划
 - [x] 343-IntegerBreak 优化: 贪心
 - [x] 198-HouseRobber 不熟

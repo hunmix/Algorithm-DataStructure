@@ -5,7 +5,13 @@
  * @return {number}
  */
 var ladderLength = function(beginWord, endWord, wordList) {
+  if (!wordList.includes(endWord)) {
+    return 0
+  }
+  // 邻接表
   const graph = {}
+  wordList.push(beginWord)
+  // 创建邻接表
   for (let i = 0; i < wordList.length; i++) {
     graph[wordList[i]] = []
     for (let j = 0; j < wordList.length; j++) {
@@ -23,7 +29,25 @@ var ladderLength = function(beginWord, endWord, wordList) {
       }
     }
   }
-  console.log(graph)
+  // bfs
+  const quene = [[beginWord, 1]]
+  const visited = new Map()
+  while (quene.length > 0) {
+    const [node, level] = quene.shift()
+    const arr = graph[node]
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === endWord) {
+        return level + 1
+      }
+      if (!visited.has(arr[i])) {
+        quene.push([arr[i], level + 1])
+        visited.set(arr[i], true)
+      }
+    }
+  }
+  return 0
 };
 
-console.log(ladderLength('hit', 'hog', ["hot","dot","dog","lot","log","cog"]))
+console.log(ladderLength('hit', 'cog', ['hot','dot','dog','lot','log','cog']))
+console.log(ladderLength('hit', 'cog', ['hot','dot','dog','lot','log']))
+console.log(ladderLength('hot', 'dog', ['hot','dog']))
