@@ -40,12 +40,12 @@
 - 链表相关算法(linkedList)
   - [x] 234-PalindromeLinkedList 优化: 第二部分链表反转时比较
 - 栈相关算法(stack)
-- [ ] 145-BinaryTreePostorderTraversal 迭代算法
-- [x] 279-PerfectSquares 尝试转换成图
-- [x] 127-WordLadder 双向bfs优化
-- [ ] 126-WordLadderII (不想做了)!!!放放
+  - [ ] 145-BinaryTreePostorderTraversal 迭代算法
+  - [x] 279-PerfectSquares 尝试转换成图
+  - [x] 127-WordLadder 双向bfs优化
+  - [ ] 126-WordLadderII (不想做了)!!!放放
 - 动态规划(dynamicProgramming)
-- [x] 343-IntegerBreak 优化: 贪心
-- [x] 198-HouseRobber 不熟
-- [ ] 337-HouseRobberIII
+  - [x] 343-IntegerBreak 优化: 贪心
+  - [x] 198-HouseRobber 不熟
+  - [ ] 337-HouseRobberIII
 - 堆(heap)

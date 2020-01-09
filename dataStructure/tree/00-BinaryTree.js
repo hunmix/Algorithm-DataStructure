@@ -48,7 +48,6 @@ const treeToArray = (root) => {
       quene.push(node.right)
     }
   }
-  console.log(arr)
   return arr
 }
 module.exports = {

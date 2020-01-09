@@ -1,4 +1,4 @@
-const test = require('../tree/test')
+const { test } = require('../tree/test')
 
 /**
  * Definition for a binary tree node.
