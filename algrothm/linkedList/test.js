@@ -21,4 +21,5 @@ const show = (head) => {
   console.log(str)
 }
 
-module.exports = test
+exports.test = test
+exports.show = show
