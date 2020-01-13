@@ -11,9 +11,18 @@ const { test } = require('./test')
  * @param {number} sum
  * @return {boolean}
  */
-// 暴力
+// 递归
 var hasPathSum = function(root, sum) {
-  
+  if (root === null) {
+    return false
+  }
+  sum -= root.val
+  if (root.left === null && root.right === null) {
+    return sum === 0
+  }
+  return hasPathSum(root.left, sum) || hasPathSum(root.right, sum)
 };
-test(hasPathSum, [5,4,8,11,null,13,4,7,2,null,null,null,1])
-test(hasPathSum, [])
+// 迭代: 懒癌
+test(hasPathSum, [5,4,8,11,null,13,4,7,2,null,null,null,1], 22)
+test(hasPathSum, [], 0)
+test(hasPathSum, [1,2], 1)

@@ -1,11 +1,11 @@
 const { generateBinartTree, treeToArray } = require('../../dataStructure/tree/00-BinaryTree')
-const test = (fn, ...res) => {
-  const ret = fn(generateBinartTree(...res))
+const test = (fn, data, ...res) => {
+  const ret = fn(generateBinartTree(data), ...res)
   console.log(ret)
   return ret
 }
-const test2 = (fn, ...res) => {
-  const ret = treeToArray(fn(generateBinartTree(...res)))
+const test2 = (fn, data, ...res) => {
+  const ret = treeToArray(fn(generateBinartTree(data), ...res))
   console.log(ret)
   return ret
 }
