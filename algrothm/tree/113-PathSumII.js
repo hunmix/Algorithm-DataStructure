@@ -11,6 +11,7 @@ const { test } = require('./test')
  * @param {number} sum
  * @return {number[][]}
  */
+// 回溯
 var pathSum = function(root, sum) {
   const ret = []
   _pathSum(root, ret, sum)
@@ -21,12 +22,12 @@ const _pathSum = (root, ret, sum, path = []) => {
   path.push(`${root.val}`)
   sum -= root.val
   if (!root.left && !root.right && sum === 0) {
-    ret.push(path)
+    ret.push([...path])
   } else {
-    _pathSum(root.left, ret, sum, path = [])
-    _pathSum(root.right, ret, sum, path = [])
+    _pathSum(root.left, ret, sum, path)
+    _pathSum(root.right, ret, sum, path)
   }
   path.pop()
 }
 
-test(pathSum, [5,4,8,11,null,13,4,7,2,null,null,5,1])
+test(pathSum, [5,4,8,11,null,13,4,7,2,null,null,5,1], 22)
