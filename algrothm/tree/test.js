@@ -1,4 +1,4 @@
-const { generateBinartTree, treeToArray } = require('../../dataStructure/tree/00-BinaryTree')
+const { generateBinartTree, treeToArray, TreeNode } = require('../../dataStructure/tree/00-BinaryTree')
 const test = (fn, data, ...res) => {
   const ret = fn(generateBinartTree(data), ...res)
   console.log(ret)
@@ -16,3 +16,4 @@ exports.test = test
 exports.test2 = test2
 exports.treeToArray = treeToArray
 exports.generateBinartTree = generateBinartTree
+exports.TreeNode = TreeNode
