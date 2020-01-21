@@ -160,6 +160,7 @@ class BST {
     console.log(node.value)
   }
   _removeMin (node) {
+    // 左子树不存在, 删除当前节点, 返回右子树
     if (node.left === null) {
       const rightNode = node.right
       this._count--
