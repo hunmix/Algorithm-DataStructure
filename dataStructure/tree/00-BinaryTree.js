@@ -18,17 +18,14 @@ const generateBinartTree = (arr) => {
   while (quene.length > 0 && arr.length > 0) {
     const cur = quene.shift()
     const v1 = arr.shift()
-    const node1 = v1 !== undefined ? new TreeNode(v1) : null
+    const node1 = (v1 !== undefined && v1 !== null) ? new TreeNode(v1) : null
     cur.left = node1
-    if (v1) {
-      quene.push(cur.left)
-    }
+    node1 && quene.push(cur.left)
+    
     const v2 = arr.shift()
-    const node2 = v2 !== undefined ? new TreeNode(v2) : null
+    const node2 = (v2 !== undefined && v2 !== null) ? new TreeNode(v2) : null
     cur.right = node2
-    if (v2) {
-      quene.push(cur.right)
-    }
+    node2 && quene.push(cur.right)
   }
   return root
 }
