@@ -30,17 +30,17 @@ var ladderLength = function(beginWord, endWord, wordList) {
     }
   }
   // bfs
-  const quene = [[beginWord, 1]]
+  const queue = [[beginWord, 1]]
   const visited = new Map()
-  while (quene.length > 0) {
-    const [node, level] = quene.shift()
+  while (queue.length > 0) {
+    const [node, level] = queue.shift()
     const arr = graph[node]
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === endWord) {
         return level + 1
       }
       if (!visited.has(arr[i])) {
-        quene.push([arr[i], level + 1])
+        queue.push([arr[i], level + 1])
         visited.set(arr[i], true)
       }
     }

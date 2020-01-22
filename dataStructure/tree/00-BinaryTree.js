@@ -13,19 +13,19 @@ const generateBinartTree = (arr) => {
   if (arr.length <= 0) {
     return null
   }
-  const quene = [new TreeNode(arr.shift())]
-  const root = quene[0]
-  while (quene.length > 0 && arr.length > 0) {
-    const cur = quene.shift()
+  const queue = [new TreeNode(arr.shift())]
+  const root = queue[0]
+  while (queue.length > 0 && arr.length > 0) {
+    const cur = queue.shift()
     const v1 = arr.shift()
     const node1 = (v1 !== undefined && v1 !== null) ? new TreeNode(v1) : null
     cur.left = node1
-    node1 && quene.push(cur.left)
+    node1 && queue.push(cur.left)
     
     const v2 = arr.shift()
     const node2 = (v2 !== undefined && v2 !== null) ? new TreeNode(v2) : null
     cur.right = node2
-    node2 && quene.push(cur.right)
+    node2 && queue.push(cur.right)
   }
   return root
 }
@@ -34,15 +34,15 @@ const generateBinartTree = (arr) => {
  * @param {Object} root 
  */
 const treeToArray = (root) => {
-  const quene = [root]
+  const queue = [root]
   const arr =[]
-  while (quene.length > 0) {
-    const node = quene.shift()
+  while (queue.length > 0) {
+    const node = queue.shift()
     const val = node ? node.val : node
     arr.push(val)
     if (node) {
-      quene.push(node.left)
-      quene.push(node.right)
+      queue.push(node.left)
+      queue.push(node.right)
     }
   }
   return arr

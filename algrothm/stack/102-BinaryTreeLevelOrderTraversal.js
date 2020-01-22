@@ -15,22 +15,22 @@ var levelOrder = function(root) {
     return []
   }
   // 节点队列
-  const quene = [root]
+  const queue = [root]
   const ret = []
   // 计算一层节点个数
   let count = 1
-  while (quene.length > 0) {
+  while (queue.length > 0) {
     let num = 0
     const arr = []
     for (let i = 0; i < count; i++) {
-      const node = quene.shift()
+      const node = queue.shift()
       arr.push(node.val)
       if (node.left) {
-        quene.push(node.left)
+        queue.push(node.left)
         num++
       }
       if (node.right) {
-        quene.push(node.right)
+        queue.push(node.right)
         num++
       }
     }

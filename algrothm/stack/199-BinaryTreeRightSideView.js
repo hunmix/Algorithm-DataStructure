@@ -14,21 +14,21 @@ var rightSideView = function(root) {
   if (!root) {
     return []
   }
-  const quene = [root]
+  const queue = [root]
   const levels = []
   let count = 1
-  while (quene.length > 0) {
+  while (queue.length > 0) {
     const arr = []
     let num = 0
     for (let i = 0; i < count; i++) {
-      const node = quene.shift()
+      const node = queue.shift()
       arr.push(node.val)
       if (node.left) {
-        quene.push(node.left)
+        queue.push(node.left)
         num++
       }
       if (node.right) {
-        quene.push(node.right)
+        queue.push(node.right)
         num++
       }
     }
