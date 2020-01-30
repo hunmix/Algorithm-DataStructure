@@ -48,7 +48,9 @@
   - [x] 343-IntegerBreak 优化: 贪心
   - [x] 198-HouseRobber 不熟
   - [ ] 337-HouseRobberIII
+  - [x] 416-PartitionEqualSubsetSum 理解起来有点脑壳疼 后面再过一遍
 - 堆(heap)
 - 树相关(tree)
 - 回溯(backtracking )
-  - [] 401-BinaryWatch 弟弟题目, 不知道哪里有问题, 明儿再整
+  - [ ] 401-BinaryWatch 弟弟题目, 不知道哪里有问题, 明儿再整
+  - [x] 52-N-QueensII 使用位运算优化
