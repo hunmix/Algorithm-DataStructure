@@ -49,6 +49,7 @@
   - [x] 198-HouseRobber 不熟
   - [ ] 337-HouseRobberIII
   - [x] 416-PartitionEqualSubsetSum 理解起来有点脑壳疼 后面再过一遍
+  - [ ] 494-TargetSum dp写法
 - 堆(heap)
 - 树相关(tree)
 - 回溯(backtracking )
