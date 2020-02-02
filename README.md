@@ -55,3 +55,4 @@
 - 回溯(backtracking )
   - [ ] 401-BinaryWatch 弟弟题目, 不知道哪里有问题, 明儿再整
   - [x] 52-N-QueensII 使用位运算优化
+- 贪心(greddy)
